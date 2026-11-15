@@ -6,48 +6,70 @@
     <title>Mi portafolio digital</title>
 
     <style>
+
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f4f7;
-            color: #222;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f9;
+            color: #333;
             margin: 0;
+            line-height: 1.6;
         }
 
         header {
-            background-color: #d9e8ff;
+            background: linear-gradient(135deg, #1b365d, #325d88);
+            color: white;
             text-align: center;
-            padding: 30px 15px;
+            padding: 40px 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            color: #ffffff;
+            margin-bottom: 10px;
+            font-size: 2.2rem;
+        }
+
+        header p {
+            color: #e0e8f0;
         }
 
         main {
             width: 90%;
             max-width: 850px;
-            margin: 20px auto;
+            margin: 30px auto;
         }
 
         section {
             background-color: white;
-            margin: 20px 0;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
+            margin: 25px 0;
+            padding: 25px;
+            border: 1px solid #e1e8ed;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
         }
 
         h1, h2 {
-            color: #234a78;
+            color: #1b365d;
+            border-bottom: 2px solid #e1e8ed;
+            padding-bottom: 8px;
+        }
+
+        h3, h4 {
+            color: #2b5797;
         }
 
         img {
             display: block;
             width: 100%;
-            max-height: 300px;
+            max-height: 320px;
             object-fit: cover;
-            border-radius: 6px;
-            margin: 15px 0;
+            border-radius: 8px;
+            margin: 20px 0;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
         }
 
         .linea-tiempo {
-            border-left: 3px solid #4d79b8;
+            border-left: 3px solid #325d88;
             margin: 20px 0;
             padding-left: 20px;
         }
@@ -61,23 +83,26 @@
             content: "";
             width: 12px;
             height: 12px;
-            background-color: #4d79b8;
+            background-color: #325d88;
             border-radius: 50%;
             position: absolute;
             left: -27px;
             top: 5px;
+            box-shadow: 0 0 0 3px #e0e8f0;
         }
 
         .etapa h3, .etapa h4 {
-            color: #315f91;
+            color: #1b365d;
             margin-bottom: 5px;
         }
 
         pre {
-            background-color: #eeeeee;
-            padding: 12px;
+            background-color: #f8f9fa;
+            border: 1px solid #e1e8ed;
+            padding: 15px;
             overflow-x: auto;
-            border-radius: 5px;
+            border-radius: 6px;
+            font-family: Consolas, Monaco, monospace;
         }
 
         table {
@@ -87,21 +112,22 @@
         }
 
         th, td {
-            border: 1px solid #ccc;
-            padding: 8px 10px;
+            border: 1px solid #e1e8ed;
+            padding: 10px 12px;
             text-align: left;
         }
 
         th {
-            background-color: #d9e8ff;
-            color: #234a78;
+            background-color: #f0f4f8;
+            color: #1b365d;
+            font-weight: 600;
         }
 
         footer {
-            background-color: #234a78;
+            background-color: #1b365d;
             color: white;
-            padding: 20px;
-            margin-top: 30px;
+            padding: 30px 20px;
+            margin-top: 40px;
             display: flex;
             justify-content: space-around;
             align-items: center;
@@ -112,12 +138,15 @@
             flex: 1;
             text-align: center;
             padding: 10px;
+            min-width: 220px;
         }
 
         footer h3 {
-            color: white;
+            color: #ffffff;
             margin-bottom: 10px;
+            border-bottom: none;
         }
+
     </style>
 </head>
 
