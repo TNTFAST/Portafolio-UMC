@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema 5</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Mi portafolio digital</h1>
+        <p><span>Temas de informática y tecnología</span></p>
+    </header>
+    <main>
+        <section>
+            <h2>Tema 5: Enfoque y utilidad de las bases de datos</h2>
+
+            <h3>Proyecto: Base de datos para gestionar el inventario de una tienda</h3>
+            <p>
+                Una base de datos es un sistema organizado para almacenar y gestionar información de manera estructurada que
+                facilita el acceso y la manipulación de los datos. Este es fundamental porque permite una gestión eficiente y
+                organizada de la información, lo que mejora la toma de decisiones y la productividad de la empresa.
+            </p>
+
+            <p>
+                En una tienda se necesita organizar la información de sus productos, categorías,
+                proveedores y movimientos de inventario. Una base de datos relacional permite
+                guardar estos datos de forma ordenada, reducir la repetición de información y
+                facilitar las búsquedas y consultas.
+            </p>
+
+            <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1000&q=80"
+                alt="Computadora y documentos usados para organizar información" />
+
+            <h3>Diseño de la base de datos</h3>
+            <p>La base de datos se organiza en cuatro tablas relacionadas:</p>
+
+            <ul>
+                <li><strong>Categorías:</strong> registra los tipos de productos.</li>
+                <li><strong>Proveedores:</strong> guarda los datos de quienes suministran los productos.</li>
+                <li><strong>Productos:</strong> registra el nombre, precio y existencias de cada producto.</li>
+                <li><strong>Movimientos:</strong> almacena las entradas y salidas de productos.</li>
+            </ul>
+
+            <p>Las relaciones entre las tablas son las siguientes:</p>
+
+            <ul>
+                <li>Una categoría puede tener muchos productos.</li>
+                <li>Un proveedor puede suministrar muchos productos.</li>
+                <li>Un producto puede tener varios movimientos de inventario.</li>
+            </ul>
+
+            <h3>Creación de las tablas en SQL</h3>
+            <p>
+                El siguiente ejemplo muestra cómo crear las tablas y relacionarlas mediante
+                claves primarias y foráneas:
+            </p>
+
+            <pre><code>CREATE TABLE Categorias (
+    id_categoria INT PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE Proveedores (
+    id_proveedor INT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    telefono VARCHAR(20)
+);
+
+CREATE TABLE Productos (
+    id_producto INT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    id_categoria INT NOT NULL,
+    id_proveedor INT NOT NULL,
+    precio DECIMAL(10, 2) NOT NULL,
+    existencias INT NOT NULL DEFAULT 0,
+    FOREIGN KEY (id_categoria) REFERENCES Categorias(id_categoria),
+    FOREIGN KEY (id_proveedor) REFERENCES Proveedores(id_proveedor)
+);
+
+CREATE TABLE Movimientos (
+    id_movimiento INT PRIMARY KEY,
+    id_producto INT NOT NULL,
+    fecha DATE NOT NULL,
+    tipo VARCHAR(10) NOT NULL,
+    cantidad INT NOT NULL,
+    FOREIGN KEY (id_producto) REFERENCES Productos(id_producto),
+    CHECK (tipo IN ('Entrada', 'Salida')),
+    CHECK (cantidad &gt; 0)
+);</code></pre>
+
+            <h3>Instrucciones de uso</h3>
+            <ol>
+                <li>Crear las tablas en un gestor de bases de datos, como MySQL, PostgreSQL o SQLite.</li>
+                <li>Registrar las categorías y los proveedores antes de agregar los productos.</li>
+                <li>Ingresar cada producto con su categoría, proveedor, precio y cantidad disponible.</li>
+                <li>Registrar las entradas y salidas de productos en la tabla de movimientos.</li>
+                <li>Consultar los datos para conocer las existencias, buscar productos y revisar el inventario.</li>
+            </ol>
+
+            <p>Con esta base de datos se pueden responder preguntas como:</p>
+
+            <ul>
+                <li>¿Qué productos pertenecen a cada categoría?</li>
+                <li>¿Cuántas unidades quedan disponibles de cada producto?</li>
+                <li>¿Qué productos tienen pocas existencias?</li>
+                <li>¿Cuál es el valor total del inventario?</li>
+            </ul>
+
+            <p>
+                Estas preguntas pueden responderse con consultas SQL o mediante el uso de hojas de cálculo porque ofrecen una
+                visión rápida y flexible de los datos.
+            </p>
+
+            <h3>Hoja de cálculo: clasificación y tabulación</h3>
+            <p>
+                Los datos de los productos también se pueden organizar en una hoja de cálculo,
+                como Excel o Google Sheets. La siguiente tabla muestra un ejemplo:
+            </p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Producto</th>
+                        <th>Categoría</th>
+                        <th>Proveedor</th>
+                        <th>Precio</th>
+                        <th>Existencias</th>
+                        <th>Valor del inventario</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Cuaderno</td>
+                        <td>Papelería</td>
+                        <td>Suministros ABC</td>
+                        <td>2,50</td>
+                        <td>40</td>
+                        <td>100,00</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Lápiz</td>
+                        <td>Papelería</td>
+                        <td>Suministros ABC</td>
+                        <td>0,50</td>
+                        <td>100</td>
+                        <td>50,00</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Mochila</td>
+                        <td>Accesorios</td>
+                        <td>Distribuidora Norte</td>
+                        <td>25,00</td>
+                        <td>8</td>
+                        <td>200,00</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>
+                Para calcular el valor del inventario de cada producto, se multiplica el precio
+                por la cantidad disponible. Si el precio está en la columna E y las existencias
+                en la columna F, se puede usar esta fórmula:
+            </p>
+
+            <pre><code>=E2*F2</code></pre>
+
+            <p>
+                <strong>Clasificación:</strong> ordenar los productos por nombre, categoría o
+                cantidad disponible. También se pueden aplicar filtros para mostrar productos
+                de una categoría específica o aquellos con pocas existencias.
+            </p>
+
+            <p>
+                <strong>Tabulación:</strong> crear una tabla dinámica que agrupe los productos
+                por categoría y muestre cuántos productos hay, cuántas unidades están disponibles
+                y cuál es el valor total del inventario.
+            </p>
+
+            <h3>Control de los datos</h3>
+            <ul>
+                <li>No repetir el identificador de un producto dentro de la tabla.</li>
+                <li>Completar los campos obligatorios, como el nombre y el precio.</li>
+                <li>Verificar que cada producto esté asociado a una categoría y a un proveedor existentes.</li>
+                <li>Ingresar precios y cantidades válidos, evitando valores negativos.</li>
+                <li>Registrar cada movimiento con su fecha, tipo y cantidad.</li>
+                <li>Comparar periódicamente las existencias registradas con el inventario físico.</li>
+                <li>Revisar que las fórmulas de la hoja de cálculo estén aplicadas a todas las filas.</li>
+            </ul>
+
+            <h3>Utilidad de la base de datos</h3>
+            <p>
+                Esta base de datos facilita la búsqueda y actualización de información, ayuda
+                a controlar las entradas y salidas de productos y permite identificar artículos
+                con pocas existencias. La hoja de cálculo complementa el sistema al presentar
+                los datos clasificados y resumidos en tablas y gráficos, lo que facilita la toma de decisiones y la
+                planificación del inventario.
+            </p>
+        </section>
+            <div class="vuelve">
+                <section id="secc1"> 
+                    <a href="tema4.html" target="_blank" class="tema">
+                        <div id="tema2" class="temita">
+                            <h2>Tema 4: Redes sociales y organizaciones</h2>
+                            <p>el impacto estratégico y responsable de las redes sociales en organizaciones y familias, junto con los fundamentos del hardware computacional mediante los periféricos de entrada/salida y la arquitectura de Von Neumann</p>
+                        </div>
+                    </a>
+                </section>
+                <section id="secc2">
+                    <a href="index.html" target="_blank" class="tema">
+                        <div id="tema2" class="temita">
+                            <h2>pagina de inicio</h2>
+                            <p>Aqui volveremos a la pagina inicial</p>
+                        </div>
+                    </a>
+                </section>
+            </div>
+    </main>
+    <footer>
+        <div>
+            <h2>Estudiantes</h2>
+            <span>Jacqueline Pérez </span><span>CI:32.491.532</span></p>
+            <p><span>Brandon Carpio</span> <span>CI:32.353.913</span></p>
+        </div>
+        <div>
+            <h2>curso</h2>
+            <p> <span>INFORMÁTICA BASICA</span></p>
+        </div>
+        <div>
+            <h2>Docente</h2>
+            <p><span>José Gregorio López</span></p>
+        </div>
+    </footer>
+</body>
+</html>
