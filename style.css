@@ -150,12 +150,19 @@ footer h2, footer span{
 }
 
 .secttem{
-    padding: auto;
+    padding: 0;
 }
 
 .vuelve section{
+    width: 100%;
+    box-sizing: border-box;
     flex: 1;
-    width: 0;
+}
+
+.vuelve a{
+    display: flex;
+    flex: 1;
+    width: 100%;
     box-sizing: border-box;
 }
 
