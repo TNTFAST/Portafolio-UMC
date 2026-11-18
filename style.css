@@ -107,11 +107,28 @@ footer {
     background-color: #0c77f33b;
     color: white;
     text-align: center;
+    margin-top: 20px;
     padding: 15px;
+}
+
+footer h2, footer span{
+    margin: 0;
+}
+.footerdiv{
     margin-top: 20px;
     display: flex;
-    align-items: center;
+    margin: auto;
     justify-content: space-around;
+    gap: 20px;
+}
+
+.divfoot{
+    font-size: smaller;
+    font-style: italic;
+    font-weight: 400;
+    color: #00000077;
+    margin-bottom: 0;
+    text-align: center;
 }
 
 .temita{
@@ -130,6 +147,10 @@ footer {
 .vuelve{
     display: flex;
     gap: 10px;
+}
+
+.secttem{
+    padding: 0;
 }
 
 .vuelve section{
