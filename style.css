@@ -125,6 +125,7 @@ footer h2, footer span{
 .divfoot{
     font-size: smaller;
     font-style: italic;
+    text-transform: capitalize;
     font-weight: 400;
     color: #00000077;
     margin-bottom: 0;
@@ -150,7 +151,7 @@ footer h2, footer span{
 }
 
 .secttem{
-    padding: 0;
+    padding: auto;
 }
 
 .vuelve section{
