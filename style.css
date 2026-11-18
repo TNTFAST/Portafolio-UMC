@@ -143,3 +143,20 @@ a {
     background-color: transparent;
     cursor: pointer;
 }
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+}
+
+.contenedor-t{
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: 1rem;
+}
+
+.contenedor-t::-webkit-scrollbar{
+    height: 1px;
+}
