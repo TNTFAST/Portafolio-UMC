@@ -3,6 +3,7 @@ body {
     background: linear-gradient(to top, rgba(157, 215, 244, 0.9), rgba(140, 176, 231, 0.1));
     color: #222;
     margin: 0;
+    height: 100%;
     
 
     display: flex;
@@ -215,4 +216,40 @@ table{
 
 .contenedor-t::-webkit-scrollbar{
     height: 1px;
+}
+
+.menu-principal {
+    width: 90%;
+    max-width: 850px;
+    margin: 0 auto 10px auto;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.75);
+    border: 1px solid #b8d0f0;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(18, 38, 60, 0.15);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+}
+
+.menu-principal a {
+    padding: 8px 14px;
+    border-radius: 6px;
+    background-color: #d9e8ff;
+    color: #12263c;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+
+.menu-principal a:hover {
+    background-color: #315f91;
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+.menu-principal a.activo {
+    background-color: #12263c;
+    color: #ffffff;
 }
